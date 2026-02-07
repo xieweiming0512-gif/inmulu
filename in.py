@@ -923,5 +923,69 @@ if __name__ == "__main__":
     else:
         main()
 
+# --- 这里的代码放在文件最后 ---
 
+def show_streamlit_ui():
+    import streamlit as st
+    
+    # 设置页面配置
+    st.set_page_config(page_title="Protect Our Earth", page_icon="🌍")
+
+    # 简单的样式美化
+    st.markdown("""
+        <style>
+        .main {
+            background-color: #f0f8ff;
+        }
+        .stMarkdown h1 {
+            color: #2e8b57;
+            text-align: center;
+        }
+        .eco-quote {
+            font-style: italic;
+            color: #555;
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            border-left: 5px solid #2e8b57;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+
+    # 页面内容
+    st.title("🌍 Protect Our Beautiful Environment")
+    
+    st.image("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", 
+             caption="Nature is our home.")
+
+    st.markdown("""
+    ### Why We Should Act Now?
+    The Earth provides us with everything we need to survive — clean air, water, and food. 
+    However, our planet is facing unprecedented challenges. It’s time for us to give back.
+    
+    ---
+    ### 🌿 Simple Actions You Can Take:
+    * **Reduce, Reuse, Recycle:** Minimize waste in your daily life.
+    * **Conserve Water:** Small changes at home can save gallons of water.
+    * **Plant a Tree:** Help us breathe better and fight climate change.
+    * **Save Energy:** Switch off lights when not in use.
+    """)
+
+    st.info("💡 **Eco-Tip of the Day:** Using a reusable water bottle can save hundreds of plastic bottles from entering our oceans every year.")
+    
+    st.markdown('<div class="eco-quote">"The greatest threat to our planet is the belief that someone else will save it." <br>— Robert Swan</div>', unsafe_allow_html=True)
+
+    # 页脚
+    st.markdown("---")
+    st.caption(f"Status: Service is running in the background. | Managed by: {USER_NAME}")
+
+# 判断是否在 Streamlit 环境运行并显示 UI
+if __name__ == "__main__":
+    # 如果检测到 streamlit 库，则显示界面
+    try:
+        import streamlit as st
+        # 只要代码被 streamlit run 启动，这个函数就会渲染页面
+        show_streamlit_ui()
+    except:
+        pass
 
